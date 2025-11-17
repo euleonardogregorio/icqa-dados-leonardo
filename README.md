@@ -1,63 +1,98 @@
-# Desafio Técnico: Analista de Dados (Mercado Livre)
+# Desafio de Dados – ICQA (Mercado Livre)
 
-Este repositório contém a resolução do desafio técnico para a posição de Analista de Dados, focado em performance operacional (ICQA / UFF Operativo).
+Este repositório contém minha solução completa para o desafio de dados da área de ICQA, cobrindo:
 
-O projeto está estruturado em três etapas principais, cada uma em sua respectiva pasta, facilitando a navegação e a avaliação.
-
-## Estrutura do Repositório
-
-* [`/1-query-sql/`](./1-query-sql/)
-* [`/2-analise-exploratoria-ia/`](./2-analise-exploratoria-ia/)
-* [`/3-dashboard-automacao/`](./3-dashboard-automacao/)
+- Diagnóstico e correção de uma query SQL
+- Criação de tabela final no BigQuery com atualização semanal
+- Análise exploratória com IA (prompt + insights)
+- Dashboard semanal com automação de envio
 
 ---
 
-## 1. Otimização e Análise de Query (SQL)
+## Estrutura do repositório
 
-Nesta etapa, o foco foi a análise, correção e documentação de uma query SQL para extração de dados de performance.
+### `desafio_1_diagnostico_correcao_query/`
 
-**Local dos Arquivos:** [`/1-query-sql/`](./1-query-sql/)
+Entrega da primeira etapa do desafio.
 
-### O que você encontrará nesta pasta:
+Aqui você encontra:
 
-* **`README.md` (ou arquivo `.md`)**: Documento detalhado contendo:
-    * A identificação de pelo menos três erros ou más práticas na query original.
-    * A query SQL corrigida e otimizada, pronta para produção.
-    * Uma explicação clara sobre o que os dados retornados representam (KPI, Numerador, Denominador) e por que são relevantes para a gestão operacional.
-* **`automacao_ingestao.md`**: Documentação técnica do processo para:
-    * Salvar os resultados da query em uma nova tabela (ex: `CREATE TABLE AS SELECT...`).
-    * Configurar a atualização automática semanal dos dados (ex: *Scheduled Queries* no BigQuery).
-
----
-
-## 2. Análise Exploratória com IA
-
-Utilizando um dataset simulado (CSV) derivado da query, foi realizada uma análise exploratória para identificar padrões e gerar insights acionáveis, demonstrando a habilidade de usar IA para acelerar a análise.
-
-**Local dos Arquivos:** [`/2-analise-exploratoria-ia/`](./2-analise-exploratoria-ia/)
-
-### O que você encontrará nesta pasta:
-
-* **`prompt.txt`**: O prompt exato (em português) elaborado e fornecido à ferramenta de IA para guiar a análise técnica e de negócios.
-* **`analise_ia.md`**: O relatório completo gerado pela IA, contendo:
-    * Identificação de padrões incomuns (picos, quedas, comportamento atípico).
-    * Análise de participação de SKUs e Categorias.
-    * Descrição da tendência temporal (W1 vs W2 + L10W) conectada aos drivers operacionais.
-* **`insights_recomendacoes.md`**: Um resumo executivo com os principais insights e 3 recomendações práticas (curto, médio e longo prazo) derivadas da análise.
+- **Query original e query corrigida** em SQL  
+- **Documento explicando**:
+  - Pelo menos **3 erros ou más práticas** identificados na query original  
+  - Como a query corrigida passa a retornar **apenas colunas com dados válidos**  
+  - **Quais informações o resultado final apresenta** e **por que são relevantes** para o negócio
+- **Passo a passo / pseudocódigo** para:
+  - Salvar o resultado em **uma nova tabela** no BigQuery, no mesmo projeto/dataset  
+  - Configurar uma **scheduled query semanal** (atualização automática dos dados)
 
 ---
 
-## 3. Dashboard e Automação (Looker Studio)
+### `desafio_2_analise_exploratoria/analise_ia/`
 
-Para permitir o acompanhamento semanal das metas de forma visual e acessível, foi desenvolvido um dashboard e documentado um fluxo de automação para distribuição.
+Entrega da etapa de **análise exploratória com IA**.
 
-**Local dos Arquivos:** [`/3-dashboard-automacao/`](./3-dashboard-automacao/)
+Nesta pasta estão:
 
-### O que você encontrará nesta pasta:
+- O **prompt** utilizado para a ferramenta de IA (ex.: ChatGPT / Claude), construído a partir do CSV com os resultados da query corrigida  
+- O **resultado resumido da IA**, com:
+  - Padrões e comportamentos incomuns  
+  - Categorias com maior participação  
+  - Tendências semanais (ex.: semanas estáveis vs. picos)  
+  - Conexão das tendências com **numerador, processos críticos e possíveis causas operacionais**
 
-* **`dashboard.md`**: Documentação contendo capturas de tela (ou o link público) do dashboard construído no Looker Studio.
-    * Visão de Vendas Totais e Ticket Médio.
-    * Gráfico de evolução semanal de vendas.
-    * Tabelas de ranking de produtos (Top e Low performance).
-* **`automacao_dashboard.md`**: Descrição técnica detalhada do fluxo de automação proposto para o envio do relatório (PDF ou link) via e-mail, toda segunda-feira às 9:00.
-    * **Solução Proposta:** Looker Studio (para o relatório) + Google Sheets (como fonte de dados) + Google Apps Script (para acionar e enviar o e-mail).
+---
+
+### `desafio_3_dashboard_automacao/`
+
+Entrega da etapa de **dashboard e automação**.
+
+Aqui você encontra:
+
+- Arquivos e/ou **capturas de tela do dashboard**, mostrando:
+  - **Vendas totais**
+  - **Ticket médio**
+  - **Ranking de produtos**
+  - **Evolução semanal das vendas**
+  - Destaque para **produtos com baixo desempenho**
+- Um arquivo de documentação técnica descrevendo:
+  - A ferramenta utilizada (ex.: Looker Studio / Power BI)  
+  - Como o dashboard consome os dados da tabela final  
+  - O **fluxo de automação** proposto para envio automático toda segunda-feira às 9h, por e-mail ou chat  
+    - Exemplo: *Looker Studio + Google Sheets + App Script* ou fluxo equivalente  
+    - Lógica de agendamento (cron / scheduler) e envio do link e/ou snapshot do dashboard
+
+---
+
+### `desenho_solucao/`
+
+Materiais visuais da solução end-to-end.
+
+Nesta pasta estão:
+
+- O **desenho da arquitetura** da solução (pipeline de dados)  
+- Visão do fluxo desde:
+  - Fonte de dados / CSV inicial  
+  - Correção da query  
+  - Criação da tabela no BigQuery  
+  - Análise com IA  
+  - Dashboard  
+  - Automação semanal de atualização e envio
+
+---
+
+## Como a solução responde ao desafio
+
+- **Diagnóstico e correção da query**  
+  - Identifico erros/más práticas, corrijo a query e documento o raciocínio.  
+
+- **Tabela final + agendamento semanal**  
+  - Mostro como criar a tabela no BigQuery e configurar a scheduled query para atualizar semanalmente.  
+
+- **Análise exploratória com IA**  
+  - Entrego o prompt elaborado e o resumo dos insights/recomendações da IA.  
+
+- **Dashboard + automação**  
+  - Disponibilizo o dashboard com os KPIs pedidos e descrevo o fluxo técnico de automação para envio semanal.
+
+
