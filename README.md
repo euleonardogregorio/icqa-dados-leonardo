@@ -1,222 +1,63 @@
-🟩 ICQA – Solução Completa de Dados
+# Desafio Técnico: Analista de Dados (Mercado Livre)
 
-Pipeline moderno, inteligente e automatizado, desenvolvido para transformar dados brutos em insights acionáveis.
-Este projeto demonstra domínio em SQL, qualidade de dados, arquitetura, análise exploratória, dashboards e automação.
+Este repositório contém a resolução do desafio técnico para a posição de Analista de Dados, focado em performance operacional (ICQA / UFF Operativo).
 
-🧭 Sumário
+O projeto está estruturado em três etapas principais, cada uma em sua respectiva pasta, facilitando a navegação e a avaliação.
 
-Visão Geral
+## Estrutura do Repositório
 
-Arquitetura da Solução
+* [`/1-query-sql/`](./1-query-sql/)
+* [`/2-analise-exploratoria-ia/`](./2-analise-exploratoria-ia/)
+* [`/3-dashboard-automacao/`](./3-dashboard-automacao/)
 
-Etapa 1 — Correção e Otimização da Query
+---
 
-Etapa 2 — Processamento e Tabela Final no-BigQuery
+## 1. Otimização e Análise de Query (SQL)
 
-Etapa 3 — Análise Exploratória com IA
+Nesta etapa, o foco foi a análise, correção e documentação de uma query SQL para extração de dados de performance.
 
-Etapa 4 — Dashboard Analítico
+**Local dos Arquivos:** [`/1-query-sql/`](./1-query-sql/)
 
-Etapa 5 — Automação Semanal
+### O que você encontrará nesta pasta:
 
-Estrutura do Repositório
+* **`README.md` (ou arquivo `.md`)**: Documento detalhado contendo:
+    * A identificação de pelo menos três erros ou más práticas na query original.
+    * A query SQL corrigida e otimizada, pronta para produção.
+    * Uma explicação clara sobre o que os dados retornados representam (KPI, Numerador, Denominador) e por que são relevantes para a gestão operacional.
+* **`automacao_ingestao.md`**: Documentação técnica do processo para:
+    * Salvar os resultados da query em uma nova tabela (ex: `CREATE TABLE AS SELECT...`).
+    * Configurar a atualização automática semanal dos dados (ex: *Scheduled Queries* no BigQuery).
 
-Tecnologias Utilizadas
+---
 
-Autor
+## 2. Análise Exploratória com IA
 
-🚀 Visão Geral
+Utilizando um dataset simulado (CSV) derivado da query, foi realizada uma análise exploratória para identificar padrões e gerar insights acionáveis, demonstrando a habilidade de usar IA para acelerar a análise.
 
-Este projeto apresenta uma solução completa de dados (end-to-end) criada para resolver um desafio técnico que envolve:
+**Local dos Arquivos:** [`/2-analise-exploratoria-ia/`](./2-analise-exploratoria-ia/)
 
-Problema em uma query SQL
+### O que você encontrará nesta pasta:
 
-Qualidade, limpeza e validação dos dados
+* **`prompt.txt`**: O prompt exato (em português) elaborado e fornecido à ferramenta de IA para guiar a análise técnica e de negócios.
+* **`analise_ia.md`**: O relatório completo gerado pela IA, contendo:
+    * Identificação de padrões incomuns (picos, quedas, comportamento atípico).
+    * Análise de participação de SKUs e Categorias.
+    * Descrição da tendência temporal (W1 vs W2 + L10W) conectada aos drivers operacionais.
+* **`insights_recomendacoes.md`**: Um resumo executivo com os principais insights e 3 recomendações práticas (curto, médio e longo prazo) derivadas da análise.
 
-Processamento e criação de tabela final no BigQuery
+---
 
-Identificação dos piores desempenhos semanais
+## 3. Dashboard e Automação (Looker Studio)
 
-Análise exploratória com IA
+Para permitir o acompanhamento semanal das metas de forma visual e acessível, foi desenvolvido um dashboard e documentado um fluxo de automação para distribuição.
 
-Construção de dashboard
+**Local dos Arquivos:** [`/3-dashboard-automacao/`](./3-dashboard-automacao/)
 
-Automação semanal de relatórios
+### O que você encontrará nesta pasta:
 
-A entrega vai além do código: traz clareza, arquitetura, inteligência analítica e storytelling técnico como esperado em times de dados modernos.
-
-🏗 Arquitetura da Solução
-📥 Entrada de Dados
-    - CSV original
-    - Query inicial com problemas
-        ↓
-🔧 Tratamento e Correção de Query (SQL)
-    - Limpeza
-    - Normalização
-    - CTEs
-        ↓
-🗄 BigQuery – Tabela Final Particionada
-    - KPIs calculados
-    - Ranking semanal
-        ↓
-🤖 Análise Exploratória com IA
-    - Padrões
-    - Outliers
-    - Tendências
-        ↓
-📊 Dashboard Analítico
-    - Filtros
-    - Tendências
-    - Ranking de pior desempenho
-        ↓
-📨 Automação Semanal
-    - Scheduled Query
-    - Envio de e-mail automático
-
-
-Versão visual:
-➡ /arquitetura/arquitetura.png
-
-🛠 Etapa 1 — Correção e Otimização da Query
-
-Nesta etapa foram aplicadas boas práticas de engenharia e análise:
-
-Revisão de todos os JOINs
-
-Tratamento de duplicidades
-
-Normalização de KPIs
-
-Criação de CTEs organizadas
-
-Cálculo seguro da taxa com SAFE_DIVIDE
-
-Identificação de piores desempenhos com ROW_NUMBER()
-
-Documentação completa:
-➡ /consultas/explicacao_query.md
-
-SQL disponibilizado em:
-
-query_original.sql
-
-query_corrigida.sql
-
-🗃 Etapa 2 — Processamento e Tabela Final no BigQuery
-
-Criada a tabela:
-
-dataset.kpi_piores_sites_semana
-
-
-Com:
-
-Particionamento por semana
-
-Clustering por KPI
-
-Campos calculados
-
-Otimização para dashboards
-
-Recarga semanal automática
-
-Script utilizado:
-➡ /scripts/consulta_agendada.sql
-
-🤖 Etapa 3 — Análise Exploratória com IA
-
-A IA foi utilizada como ferramenta de análise de alto nível:
-
-Identificação de outliers
-
-Padrões e recorrências
-
-Hipóteses operacionais
-
-Recomendações práticas
-
-Resumo executivo para tomada de decisão
-
-Documentos:
-
-prompt.md → comando enviado
-
-insights.md → análise gerada
-
-📊 Etapa 4 — Dashboard Analítico
-
-O dashboard possibilita:
-
-Investigação por KPI
-
-Comparação semanal
-
-Identificação rápida dos piores desempenhos
-
-Drill-down por site
-
-Tendência temporal
-
-Screenshots:
-➡ /dashboard/screenshots/
-
-Descrição:
-➡ /dashboard/descricao_dashboard.md
-
-Ferramentas possíveis:
-Looker Studio, Power BI, Streamlit ou Dash.
-
-🔁 Etapa 5 — Automação Semanal
-
-Foi implementada uma automação completa:
-
-BigQuery Scheduled Query para atualizar a tabela
-
-Script Python para:
-
-gerar resumo
-
-anexar prints
-
-enviar e-mail
-
-adicionar link do dashboard
-
-Código em:
-➡ /scripts/envio_email.py
-
-📁 Estrutura do Repositório
-icqa-dados-leonardo/
-│
-├── README.md
-├── arquitetura/
-├── consultas/
-├── dados/
-├── analise_ia/
-├── dashboard/
-├── scripts/
-└── notebooks/
-
-
-Cada pasta contém arquivos específicos para manter o projeto limpo, modular e escalável.
-
-🧰 Tecnologias Utilizadas
-
-SQL (BigQuery)
-
-Python
-
-AI – Large Language Models (ChatGPT / Gemini)
-
-Power BI / Looker Studio
-
-GitHub & GitHub Pages
-
-Miro (Design da Arquitetura)
-
-👤 Autor
-
-Leonardo Gregorio
-Engenheiro de Tecnologia | Dados & Analytics
-Transformando problemas complexos em soluções inteligentes e práticas.
+* **`dashboard.md`**: Documentação contendo capturas de tela (ou o link público) do dashboard construído no Looker Studio.
+    * Visão de Vendas Totais e Ticket Médio.
+    * Gráfico de evolução semanal de vendas.
+    * Tabelas de ranking de produtos (Top e Low performance).
+* **`automacao_dashboard.md`**: Descrição técnica detalhada do fluxo de automação proposto para o envio do relatório (PDF ou link) via e-mail, toda segunda-feira às 9:00.
+    * **Solução Proposta:** Looker Studio (para o relatório) + Google Sheets (como fonte de dados) + Google Apps Script (para acionar e enviar o e-mail).
