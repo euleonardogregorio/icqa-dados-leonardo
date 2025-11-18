@@ -1,6 +1,6 @@
 # 🧠 Prompt para Análise Exploratória – ICQA / UFF Operativo
 
-Quero que você atue como um **analista de dados sênior especializado em performance operacional (ICQA / UFF Operativo)**.
+Quero que você atue como um **analista de dados sênior especializado em performance operacional (ICQA - Qualidade, Inventário e Insumos)**.
 
 Vou fornecer um **CSV simulado** contendo:
 
