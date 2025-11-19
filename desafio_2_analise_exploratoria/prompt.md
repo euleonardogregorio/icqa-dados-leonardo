@@ -1,8 +1,8 @@
 # 🧠 Prompt para Análise Exploratória – ICQA / UFF Operativo
 
-Quero que você atue como um **analista de dados sênior especializado em performance operacional (ICQA - Qualidade, Inventário e Insumos)**.
+Quero que você atue como um **analista um especialista em performance operacional (ICQA - Qualidade, Inventário e Insumos)**.
 
-Vou fornecer um **CSV simulado** contendo:
+Vou fornecer um **CSV** contendo:
 
 - KPIs por site  
 - Variações semanais (W1 vs W2)  
